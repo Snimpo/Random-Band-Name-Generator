@@ -14,9 +14,7 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  const currentYear = new Date().getFullYear();
-  console.log(currentYear); 
+app.get("/", (req, res) => { 
   res.render("index.ejs");
 });
 
@@ -26,9 +24,9 @@ app.post("/submit", (req, res) => {
   let randomNoun = noun[Math.floor(Math.random() * (adj.length + 1))];
   let randomBandName = randomAdj+" "+ randomNoun;
   res.render("index.ejs",{
-    randomName: randomBandName,
-    currentYear: Year
-  });
+  randomName: randomBandName,
+ //   currentYear: Year
+});
   //Step 2 - Make the generate name functionality work
   //Hint: When the "Generate Name" button in index.ejs is clicked, it should hit up this route.
   //Then:
